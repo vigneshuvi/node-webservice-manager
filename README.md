@@ -8,6 +8,7 @@ Simple Node Service Manager is useful to create RestFul web services using Expre
     2. API Versioning
     3. Basic Security
     4. Supports for HTTP request methods (GET, PUT, POST, DELETE)
+    5. Host Web pages.
 
 
 ####1. Environment setup
@@ -76,6 +77,11 @@ If it's QA and Prodcution environments, Request Header must be.
 4. Supports for HTTP request methods (GET, PUT, POST, DELETE)    
 
 Node Web Service Manager helps to support the four types of HTTP request methods.
+
+
+5. Host Web pages    
+
+Node Web Service Manager helps to host static web pages in the Node server with dynamic web title based on the environments.
 
 
 ##How to run this node web service server?
