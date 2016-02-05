@@ -2,7 +2,7 @@
  * Author:     Vignesh Kumar
  * Copyright:  vigneshuvi
  * Date:	   04/02/2016
- * This file contains the web service environment configuration and register the services and authendications.
+ * This file contains the web service environment configuration and register the services and authentications.
  */
 
 'use strict';
