@@ -19,6 +19,7 @@ exports.show = function(req, res) {
 		}
 		return res.status(200).send(resJson);
     } catch (exe) {
+    	console.log("Exeception occured while access show webservice. \n Error :",exe);
         return res.sendStatus(404);
     }
 };
@@ -31,6 +32,7 @@ exports.showall = function(req, res) {
 		}
 		return res.status(200).send(resJson);
     } catch (exe) {
+    	console.log("Exeception occured while access showall webservice. \n Error :",exe);
         return res.sendStatus(404);
     }
 };
@@ -45,6 +47,7 @@ exports.update = function(req, res) {
 		}
 		return res.status(200).send(resJson);
     } catch (exe) {
+    	console.log("Exeception occured while access update webservice. \n Error :",exe);
         return res.sendStatus(404);
     }
 };
@@ -57,6 +60,7 @@ exports.create = function(req, res) {
 		}
 		return res.status(200).send(resJson);
     } catch (exe) {
+    	console.log("Exeception occured while access create webservice. \n Error :",exe);
         return res.sendStatus(404);
     }
 };
@@ -71,6 +75,7 @@ exports.delete = function(req, res) {
 		}
 		return res.status(200).send(resJson);
     } catch (exe) {
+    	console.log("Exeception occured while access delete webservice. \n Error :",exe);
         return res.sendStatus(404);
     }
 };

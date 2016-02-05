@@ -33,6 +33,7 @@ exports.authentication = function(req, res, next) {
     		return res.sendStatus(404);
     	}
     } catch (exe) {
+        console.log("Exeception occured while validate the request headers. \n Error :",exe);
         return res.sendStatus(404);
     }
 };
@@ -43,6 +44,7 @@ exports.bypass = function(req, res, next) {
     	console.log("Web service are Bypassed");
 		next();
     } catch (exe) {
+        console.log("Exeception occured while bypass the request headers. \n Error :",exe);
         return res.sendStatus(404);
     }
 };
