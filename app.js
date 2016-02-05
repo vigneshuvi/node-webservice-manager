@@ -12,26 +12,32 @@ var express = require('express'),
 	serviceConfig = require('./webservice'),
 	auth = require('./auth'),
 	config = require('./config.js'),
+	https = require('https'),
+	http = require('http'),
+	fs = require('fs'),
+	ejs = require('ejs'),
+	bodyParser = require('body-parser'),
+	path = require('path'),
 	app = express();
 
 // Set the Web service configuration based on Environment.
 var wsConfig = config.getConfig(), validateType = null;
 
-console.log(JSON.stringify(wsConfig));
 
-// Set the Application title
-app.set('title', wsConfig.title);
+app.set('title', wsConfig.title);	// Set the Application title
+app.use(bodyParser.json());	// for parsing application/json
 
-// Set content type GLOBALLY for any response.
-app.use(function (req, res, next) {
-	res.header("Content-Type",'application/json');
-	next();
+app.engine('.html', ejs.__express); // Set the ejs engine in Express
+app.set('view engine', 'ejs');		// Set the Engine view
+app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'public')); // Set the views path
+ 
+
+// Response the Home Url
+app.get('/',function(req,res){
+    res.render('index', { title: wsConfig.title });
 });
 
-// Home Url.
-app.get('/', function (req, res) {
-	res.send(wsConfig.title);
-});
 
 // Web Service Authendication validate
 if(wsConfig.auth === "required") {
@@ -70,10 +76,37 @@ if (serviceConfig && serviceConfig.webservices && serviceConfig.webservices.leng
 	}
 }
 
-// Listen the environment port number
-app.listen(wsConfig.http.port, function () {
-  console.log('Example app listening on port '+wsConfig.http.port+'!');
-});
+// Validate the https first, if it is enable, just create a https server alone.
+if(wsConfig.https.enable) {
+
+	//	Certificate, Private key and CA certificates to use for SSL. Default null.
+	//	key:Private key to use for SSL. Default null.
+	//	cert: Public x509 certificate to use. Default null.
+	/**
+	Sample formate
+	const options = {
+	  	key: fs.readFileSync(wsConfig.https.options.key),
+	  	cert: fs.readFileSync(wsConfig.https.options.cert)
+	};
+	**/
+
+	const options = {
+	  	key: null,
+	  	cert: null
+	};
+
+	// Listen the environment port number
+	https.createServer(options, app).listen(wsConfig.https.port, function () {
+	  	console.log('Example app listening on port '+wsConfig.https.port+'!');
+	});
+} else {
+	// Listen the environment port number
+	if(wsConfig.http.enable) {
+		http.createServer(app).listen(wsConfig.http.port, function () {
+		  console.log('Example app listening on port '+wsConfig.http.port+'!');
+		});
+	}
+}
 
 
 // Exit or Kill node 
