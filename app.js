@@ -35,7 +35,7 @@ app.get('/', function (req, res) {
 
 // Web Service Authendication validate
 if(wsConfig.auth === "required") {
-	validateType = auth.authendication;
+	validateType = auth.authentication;
 } else {
 	validateType = auth.bypass;
 }
