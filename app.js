@@ -18,6 +18,7 @@ var express = require('express'),
 	ejs = require('ejs'),
 	bodyParser = require('body-parser'),
 	path = require('path'),
+	favicon = require('serve-favicon'),
 	app = express();
 
 // Set the Web service configuration based on Environment.
@@ -29,15 +30,31 @@ app.use(bodyParser.json());	// for parsing application/json
 
 app.engine('.html', ejs.__express); // Set the ejs engine in Express
 app.set('view engine', 'ejs');		// Set the Engine view
-app.use(express.static('public'));
+app.use(express.static('./public'));
 app.set('views', path.join(__dirname, 'public')); // Set the views path
- 
+
+//app.use(favicon(__dirname + '/public/favicon.ico'));
 
 // Response the Home Url
 app.get('/',function(req,res){
     res.render('index', { title: wsConfig.title });
 });
 
+
+// Response the Home Url
+app.get('/'+wsConfig.version+'/u1v2i3C4o5n6f7i8g9', function(req,res) {
+    try {
+        var resJson = {
+			status : true,
+			message : "successfully hit the config webservice.",
+			environment : process.env.NODE_ENV
+		}
+		return res.status(200).send(resJson);
+    } catch (exe) {
+    	console.log("Exeception occured while access u1v2i3C4o5n6f7i8g9 webservice. \n Error :",exe);
+        return res.sendStatus(404);
+    }
+});
 
 // Web Service Authendication validate
 if(wsConfig.auth === "required") {
@@ -97,13 +114,13 @@ if(wsConfig.https.enable) {
 
 	// Listen the environment port number
 	https.createServer(options, app).listen(wsConfig.https.port, function () {
-	  	console.log('Example app listening on port '+wsConfig.https.port+'!');
+	  	console.log('Example HTTPS app listening on port '+wsConfig.https.port+'!');
 	});
 } else {
 	// Listen the environment port number
 	if(wsConfig.http.enable) {
 		http.createServer(app).listen(wsConfig.http.port, function () {
-		  console.log('Example app listening on port '+wsConfig.http.port+'!');
+		  console.log('Example HTTP app listening on port '+wsConfig.http.port+'!');
 		});
 	}
 }

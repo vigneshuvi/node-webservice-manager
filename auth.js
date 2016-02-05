@@ -14,11 +14,12 @@ exports.authentication = function(req, res, next) {
     try {
     	console.log("Web service are validating");
 		var header = req.headers;
-    	if(header && header.date && header.authorization) {
-            var timeStart = parseFloat(header.date);
+        console.log("header", header);
+    	if(header && header.xdate && header.xauthorization) {
+            var timeStart = parseFloat(header.xdate);
             var timeEnd = new Date().getTime();
             var minDiff = (timeEnd - timeStart) / 60 / 1000;            //in minutes
-    		if (header.authorization === "bypass" && minDiff <= 30) {   // Validate the auth token and web service request time. 
+    		if (header.xauthorization === "bypass" && minDiff <= 30) {   // Validate the auth token and web service request time. 
 				next();
     		} else if (minDiff > 30) {
                 var resJson = {
