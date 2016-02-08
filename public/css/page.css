@@ -210,6 +210,14 @@ textarea {
     color: #c9baba;
 }
 
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {float:none;}
+
 
 textarea:focus, input:focus, .uneditable-input:focus {
     border-color: lightslategray !important;

@@ -83,6 +83,10 @@ Simple Node Service Manager is useful to create RestFul web services using Expre
 
     Node Web Service Manager helps to host static web pages in the Node server with dynamic web title based on the environments.
 
+![alt text][api_test_environment]
+
+[api_test_environment]: https://github.com/vigneshuvi/node-webservice-manager/blob/master/public/images/api_test_environment.png
+
 
 ##How to run this node web service server?
 
