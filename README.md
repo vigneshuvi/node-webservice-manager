@@ -64,22 +64,22 @@ Simple Node Service Manager is useful to create RestFul web services using Expre
 
     For the different environments, We can able to provide a different kind of security implementation using over security implementation.
 
-    -   DEV environment is by-pass the security validation.
-    -   QA and Production environments are required the security validation. 
+        -   DEV environment is by-pass the security validation.
+        -   QA and Production environments are required the security validation. 
 
-If it's QA and Prodcution environments, Request Header must be.
+    If it's QA and Prodcution environments, Request Header must be.
 
-    - authorization = "bybass"
-    - content-type  = "application/json"
-    - date          = "1454577924104"     - UTC time.
+        - authorization = "bybass"
+        - content-type  = "application/json"
+        - date          = "1454577924104"     - UTC time.
 
 
-4. Supports for HTTP request methods (GET, PUT, POST, DELETE)    
+####4. Supports for HTTP request methods (GET, PUT, POST, DELETE)    
 
     Node Web Service Manager helps to support the four types of HTTP request methods.
 
 
-5. Host Web pages    
+####5. Host Web pages    
 
     Node Web Service Manager helps to host static web pages in the Node server with dynamic web title based on the environments.
 
