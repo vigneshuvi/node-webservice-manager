@@ -13,9 +13,9 @@ Simple Node Service Manager is useful to create RestFul web services using Expre
 
 ####1. Environment setup
 
-Web Service basics have to support multiple environments like development, QA, Production environment and Configurated in the generic format.
+    Web Service basics have to support multiple environments like development, QA, Production environment and Configurated in the generic format.
 
-The `config.json` is helpful achieve the Environment setup.
+    The `config.json` is helpful achieve the Environment setup.
 
 ```js
 
@@ -49,9 +49,9 @@ The `config.json` is helpful achieve the Environment setup.
 
 ####2. API Version
 
-Configure the API version number in the `config.json` based on the environments.
+    Configure the API version number in the `config.json` based on the environments.
 
-The `config.json` is helpful achieve the API versioning to register web services based on the version number.
+    The `config.json` is helpful achieve the API versioning to register web services based on the version number.
 
 ```js
     http://<webserver>/<version>/<webservice>        
@@ -60,9 +60,9 @@ The `config.json` is helpful achieve the API versioning to register web services
 
 ####3. Basic Security
 
-Every RestFul Web services need the security and validation before going to hit the server business logics. Node Web Service Manager helps to implement the basic security and validate the request headers.
+    Every RestFul Web services need the security and validation before going to hit the server business logics. Node Web Service Manager helps to implement the basic security and validate the request headers.
 
-For the different environments, We can able to provide a different kind of security implementation using over security implementation.
+    For the different environments, We can able to provide a different kind of security implementation using over security implementation.
 
     -   DEV environment is by-pass the security validation.
     -   QA and Production environments are required the security validation. 
@@ -76,12 +76,12 @@ If it's QA and Prodcution environments, Request Header must be.
 
 4. Supports for HTTP request methods (GET, PUT, POST, DELETE)    
 
-Node Web Service Manager helps to support the four types of HTTP request methods.
+    Node Web Service Manager helps to support the four types of HTTP request methods.
 
 
 5. Host Web pages    
 
-Node Web Service Manager helps to host static web pages in the Node server with dynamic web title based on the environments.
+    Node Web Service Manager helps to host static web pages in the Node server with dynamic web title based on the environments.
 
 
 ##How to run this node web service server?
