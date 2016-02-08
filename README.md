@@ -1,6 +1,6 @@
 # Node Web Service Manager 
 
-Simple Node Service Manager is useful to create RestFul web services using Express and Node.js.
+Simple Node Service Manager is useful to create RESTful web services using Express and Node.js.
 
 ##Features :
 
@@ -13,7 +13,7 @@ Simple Node Service Manager is useful to create RestFul web services using Expre
 
 ####1. Environment setup
 
-    Web Service basics have to support multiple environments like development, QA, Production environment and Configurated in the generic format.
+    Web Service basics have to support multiple environments like development, QA, Production environment and Configured in the generic format.
 
     The `config.json` is helpful achieve the Environment setup.
 
@@ -60,14 +60,14 @@ Simple Node Service Manager is useful to create RestFul web services using Expre
 
 ####3. Basic Security
 
-    Every RestFul Web services need the security and validation before going to hit the server business logics. Node Web Service Manager helps to implement the basic security and validate the request headers.
+    Every RESTful Web services need the security and validation before going to hit the server business logic's. Node Web Service Manager helps to implement the basic security and validate the request headers.
 
     For the different environments, We can able to provide a different kind of security implementation using over security implementation.
 
         -   DEV environment is by-pass the security validation.
         -   QA and Production environments are required the security validation. 
 
-    If it's QA and Prodcution environments, Request Header must be.
+    If it's QA and Production environments, Request Header must be.
 
         - authorization = "bybass"
         - content-type  = "application/json"
@@ -91,13 +91,13 @@ Simple Node Service Manager is useful to create RestFul web services using Expre
 ##How to run this node web service server?
 
     -   Need to install node.
-    -   Open ternmial and run the 'npm install' command to download the node modules.
+    -   Open terminal and run the 'npm install' command to download the node modules.
     -   Setup the node environment based on NODE_ENV variable. (Like NODE_ENV=DEV, NODE_ENV=QA and NODE_ENV=PROD )
     -   Run the node server 'npm app.js' command.
 
-##How to test the RestFul web service?
+##How to test the RESTful web service?
 
-    -  If you set up the node environment is `DEV`, then you can directly test it from RestFul Client.
+    -  If you set up the node environment is `DEV`, then you can directly test it from RESTful Client.
 
         http://localhost:3000/v1/sample             - Show All -  Fetch all based on request.
         http://localhost:3000/v1/sample:id="test"   - Show     -  Fetch based on request id. 
