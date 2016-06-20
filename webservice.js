@@ -12,7 +12,11 @@ module.exports = {
 	webservices: [
 		{
 			name : "sample",
-			methods : require('./services/sample')
+			methods : require('./services/v1/sample/sample')
+		},
+		{
+			name : "user",
+			methods : require('./services/v1/user/user')
 		}
 	]
 };
